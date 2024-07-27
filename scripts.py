@@ -28,10 +28,10 @@ def pyinstall():
         command = f"pyinstaller {name}.spec --noconfirm"
     else:
         command = (
-            "pyinstaller en_bg_dict/main.py"
+            "pyinstaller prevedict/main.py"
             f" --name {name}"
             " --contents-directory data"
-            " --add-data=en_bg_dict/assets:assets"
+            " --add-data=prevedict/assets:assets"
             " --noconfirm"  # doesn't require override confirmation
         )
 

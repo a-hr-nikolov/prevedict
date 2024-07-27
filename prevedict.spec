@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['en_bg_dict/main.py'],
+    ['prevedict/main.py'],
     pathex=[],
     binaries=[],
-    datas=[('en_bg_dict/assets', 'assets')],
+    datas=[('prevedict/assets', 'assets')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
