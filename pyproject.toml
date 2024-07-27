@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "prevedict"
+version = "1.0.0"
+description = "English-Bulgarian Bi-directional Dictionary"
+authors = ["Atanas Nikolov <a.hr.nikolov@gmail.com>"]
+license = "GPLv3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.12, <3.13" # PySide6 requirement
+pyside6 = "^6.7.1"
+pydantic = "^2.8.2"
+rapidfuzz = "^3.9.4"
+httpx = "^0.27.0"
+
+[tool.poetry.group.dev.dependencies]
+requests = "^2.32.3"
+pytest = "^8.2.2"
+beautifulsoup4 = "^4.12.3"
+pyinstaller = "^6.9.0"
+
+[tool.poetry.scripts]
+main = "prevedict.main:main"
+bm = "scripts:benchmark"
+pyinstall = "scripts:pyinstall"
+pickle = "processors.dict_pickler:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
