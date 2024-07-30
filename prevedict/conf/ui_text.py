@@ -24,8 +24,8 @@ class UIText:
     @classmethod
     def __init(cls) -> None:
         cls.MAIN_TITLE = BiWord(
-            "EN-BG Dictionary",
-            "Английско-Български Речник",
+            "Prevedict",
+            "Prevedict",
         )
 
         cls.SETTINGS_TITLE = cls.MAIN_TITLE + BiWord(
