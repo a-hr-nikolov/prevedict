@@ -1,4 +1,3 @@
-import pathlib
 import re
 import subprocess
 
@@ -20,25 +19,3 @@ def benchmark():
 
     print("----------------------")
     print(f"Average: {total / runs:0.3f} seconds")
-
-
-def pyinstall():
-    name = "prevedict"
-    if pathlib.Path(f"{name}.spec").exists():
-        command = f"pyinstaller {name}.spec --noconfirm"
-    else:
-        command = (
-            "pyinstaller prevedict/main.py"
-            f" --name {name}"
-            " --contents-directory data"
-            " --add-data=prevedict/assets:assets"
-            " --noconfirm"  # doesn't require override confirmation
-        )
-
-    process = subprocess.run(
-        command,
-        text=True,
-        shell=True,
-    )
-
-    return process.returncode

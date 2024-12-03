@@ -40,7 +40,7 @@ class InfoDialog(QDialog):
         return self.process_lines(lines)
 
     def extract_translation(self) -> list[str]:
-        with open(paths.INFO_TEXT, encoding="UTF-8") as text:
+        with paths.INFO_TEXT.open(encoding="UTF-8") as text:
             lines = text.readlines()
 
         start_index = lines.index(f"[{self.lang}]\n")
@@ -50,7 +50,7 @@ class InfoDialog(QDialog):
 
     def process_lines(self, lines: list[str]) -> str:
         joined = (
-            f"<h2><b>{UIText.KEYBINDINGS}</b></h2><p><i>{lines[0].strip("\n")}</i></p>"
+            f"<h2><b>{UIText.KEYBINDINGS}</b></h2><p><i>{lines[0].strip("\n")}</i></p>"  # type: ignore
         )
         lines = lines[1:]
         processed = []

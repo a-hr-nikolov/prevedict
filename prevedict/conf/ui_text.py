@@ -2,7 +2,7 @@ from prevedict.conf.settings import Lang, Settings
 
 
 class BiWord(str):
-    _lang: Lang = None
+    _lang: Lang | None = None
 
     def __new__(cls, en: str, bg: str, *args, **kwargs):
         value = en if cls._lang == Lang.EN else bg
@@ -14,6 +14,8 @@ class BiWord(str):
 
 
 class UIText:
+    MAIN_TITLE: BiWord
+
     @staticmethod
     def __update(settings: Settings):
         BiWord._lang = settings.display.language

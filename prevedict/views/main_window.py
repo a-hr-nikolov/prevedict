@@ -26,7 +26,8 @@ class MainWindow(QMainWindow):
 
     def configure(self, settings: Settings) -> None:
         self.settings = settings
-        app: QApplication = QApplication.instance()
+        app = QApplication.instance()
+        assert isinstance(app, QApplication)
         app.setFont(settings.fonts.general.qfont)
         app.setPalette(settings.display.palette)
         self.setWindowTitle(UIText.MAIN_TITLE)
@@ -80,18 +81,18 @@ class MainWindow(QMainWindow):
         self.quit = QShortcut(QKeySequence("Ctrl+Q"), self)
         self.quit.activated.connect(self.close)
 
-    def keyPressEvent(self, event) -> bool:
+    def keyPressEvent(self, event) -> None:
         """Re-implement key press event to route letter key presses to the input field."""
         key = event.key()
         if key == Qt.Key_Up:
             self._move_selection(-1)
-            return True
+            return
         if key == Qt.Key_Down:
             self._move_selection(1)
-            return True
+            return
 
         super().keyPressEvent(event)
-        return True
+        return
 
     def _move_selection(self, offset) -> None:
         list_widget = self.main_view.list_widget
